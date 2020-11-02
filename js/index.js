@@ -1,20 +1,9 @@
 const snakeGame = new SnakeGame();
 const snakeBoard = document.getElementById("snake-board");
-// console.log(snakeGame);
-// console.log(snakeBoard);
-
-// function draw() {
-//   snakeBoard.innerHTML = "";
-//   snakeGame.drawSnake(snakeBoard);
-//   console.log("test");
-//   snakeGame.moveSnake();
-//   setTimeout(() => {
-//     this.draw();
-//   }, 800);
-// }
 
 function draw() {
   update();
+
   setTimeout(() => {
     this.draw();
   }, 800);
@@ -27,9 +16,17 @@ function update() {
 }
 
 draw();
-// move();
 
-//another var -  direction to move
-// depending on dir,
-
-//position, direction to know
+window.addEventListener("keydown", (e) => {
+  // console.log("bla");
+  console.log(e.keyCode);
+  if (e.keyCode === 39) {
+    console.log("right arrow");
+  } else if (e.keyCode === 40) {
+    console.log("down arrow");
+  } else if (e.keyCode === 37) {
+    console.log("left arrow");
+  } else if (e.keyCode === 38) {
+    console.log("up arrow");
+  }
+});

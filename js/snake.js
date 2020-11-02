@@ -1,11 +1,12 @@
 class SnakeGame {
   constructor() {
-    this.snakeBody = [{ x: 15, y: 16 }];
+    this.snakeBody = [
+      { x: 15, y: 17 },
+      { x: 15, y: 16 },
+    ];
+    this.direction = "right";
   }
   drawSnake(snakeBoard) {
-    // console.log("this will be draw snake");
-    // console.log("snakeBody", this.snakeBody);
-
     this.snakeBody.forEach((gridSegment) => {
       // console.log("gridSegment", gridSegment);
       const snakeElm = document.createElement("div");
@@ -17,11 +18,25 @@ class SnakeGame {
       snakeBoard.appendChild(snakeElm);
     });
   }
+
   moveSnake() {
+    // console.log("snakeBody", this.snakeBody);
     let snake = document.querySelector(".snake");
     // console.log("snake", snake);
-    snake = this.snakeBody[0].y++;
     // console.log("snakebody", this.snakeBody);
+
+    if (this.direction === "right") {
+      this.snakeBody[0].y++;
+    } else if (this.direction === "left") {
+      this.snakeBody[0].y--;
+    } else if (this.direction === "up") {
+      this.snakeBody[0].x--;
+    } else if (this.direction === "down") {
+      this.snakeBody[0].x++;
+    }
   }
-  //   updateSnake() {}
+
+  changeDirection() {
+    console.log("change direction");
+  }
 }
