@@ -19,12 +19,9 @@ class SnakeGame {
   }
   moveSnake() {
     let snake = document.querySelector(".snake");
-
-    setTimeout(() => {
-      console.log("setTimeout running");
-      snake = this.snakeBody[0].x++;
-      console.log("snakebody", this.snakeBody);
-    }, 1000);
+    // console.log("snake", snake);
+    snake = this.snakeBody[0].y++;
+    // console.log("snakebody", this.snakeBody);
   }
   //   updateSnake() {}
 }

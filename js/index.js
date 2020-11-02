@@ -3,21 +3,31 @@ const snakeBoard = document.getElementById("snake-board");
 // console.log(snakeGame);
 // console.log(snakeBoard);
 
-// snakeGame.drawSnake(snakeBoard);
+// function draw() {
+//   snakeBoard.innerHTML = "";
+//   snakeGame.drawSnake(snakeBoard);
+//   console.log("test");
+//   snakeGame.moveSnake();
+//   setTimeout(() => {
+//     this.draw();
+//   }, 800);
+// }
+
 function draw() {
-  snakeBoard.innerHTML = "";
-  snakeGame.drawSnake(snakeBoard);
+  update();
+  setTimeout(() => {
+    this.draw();
+  }, 800);
 }
 
-// function update() {}
-function move() {
+function update() {
+  snakeBoard.innerHTML = "";
+  snakeGame.drawSnake(snakeBoard);
   snakeGame.moveSnake();
 }
 
 draw();
-move();
-
-//settimeout/setinterval for each sec, and change coordinates
+// move();
 
 //another var -  direction to move
 // depending on dir,
