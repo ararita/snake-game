@@ -9,4 +9,17 @@ function draw() {
   snakeGame.drawSnake(snakeBoard);
 }
 
+// function update() {}
+function move() {
+  snakeGame.moveSnake();
+}
+
 draw();
+move();
+
+//settimeout/setinterval for each sec, and change coordinates
+
+//another var -  direction to move
+// depending on dir,
+
+//position, direction to know
