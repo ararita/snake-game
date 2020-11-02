@@ -1,7 +1,7 @@
 class SnakeGame {
   constructor() {
     this.snakeBody = [
-      { x: 15, y: 17 },
+      // { x: 15, y: 17 },
       { x: 15, y: 16 },
     ];
     this.direction = "right";
@@ -21,7 +21,7 @@ class SnakeGame {
 
   moveSnake() {
     // console.log("snakeBody", this.snakeBody);
-    let snake = document.querySelector(".snake");
+    // let snake = document.querySelector(".snake");
     // console.log("snake", snake);
     // console.log("snakebody", this.snakeBody);
 
@@ -36,7 +36,16 @@ class SnakeGame {
     }
   }
 
-  changeDirection() {
+  changeDirection(e) {
     console.log("change direction");
+    if (e.keyCode === 39) {
+      this.direction = "right";
+    } else if (e.keyCode === 40) {
+      this.direction = "down";
+    } else if (e.keyCode === 37) {
+      this.direction = "left";
+    } else if (e.keyCode === 38) {
+      this.direction = "up";
+    }
   }
 }
