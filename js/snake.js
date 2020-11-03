@@ -6,6 +6,7 @@ class SnakeGame {
     ];
     this.direction = "right";
     this.isSnakeDead = false;
+    this.gridSize = 30;
   }
   drawSnake(snakeBoard) {
     this.snakeBody.forEach((gridSegment) => {
@@ -20,7 +21,7 @@ class SnakeGame {
     });
   }
 
-  moveSnake() {
+  moveSnake(food) {
     if (this.direction === "right") {
       this.snakeBody[0].y++;
     } else if (this.direction === "left") {
@@ -29,6 +30,14 @@ class SnakeGame {
       this.snakeBody[0].x--;
     } else if (this.direction === "down") {
       this.snakeBody[0].x++;
+    }
+    if (
+      this.snakeBody[0].x === food.coordinates.x &&
+      this.snakeBody[0].y === food.coordinates.y
+    ) {
+      //display the food randomly
+      food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
+      food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
     }
     this.dead();
   }
