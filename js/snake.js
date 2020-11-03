@@ -46,13 +46,13 @@ class SnakeGame {
 
   changeDirection(e) {
     console.log("change direction");
-    if (e.keyCode === 39) {
+    if (e.keyCode === 39 && this.direction !== "left") {
       this.direction = "right";
-    } else if (e.keyCode === 40) {
+    } else if (e.keyCode === 40 && this.direction !== "up") {
       this.direction = "down";
-    } else if (e.keyCode === 37) {
+    } else if (e.keyCode === 37 && this.direction !== "right") {
       this.direction = "left";
-    } else if (e.keyCode === 38) {
+    } else if (e.keyCode === 38 && this.direction !== "down") {
       this.direction = "up";
     }
   }
