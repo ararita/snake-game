@@ -5,6 +5,7 @@ class SnakeGame {
       { x: 15, y: 16 },
     ];
     this.direction = "right";
+    this.isSnakeDead = false;
   }
   drawSnake(snakeBoard) {
     this.snakeBody.forEach((gridSegment) => {
@@ -20,11 +21,6 @@ class SnakeGame {
   }
 
   moveSnake() {
-    // console.log("snakeBody", this.snakeBody);
-    // let snake = document.querySelector(".snake");
-    // console.log("snake", snake);
-    // console.log("snakebody", this.snakeBody);
-
     if (this.direction === "right") {
       this.snakeBody[0].y++;
     } else if (this.direction === "left") {
@@ -33,6 +29,18 @@ class SnakeGame {
       this.snakeBody[0].x--;
     } else if (this.direction === "down") {
       this.snakeBody[0].x++;
+    }
+    this.dead();
+  }
+
+  dead() {
+    if (
+      this.snakeBody[0].x > 30 ||
+      this.snakeBody[0].y > 30 ||
+      this.snakeBody[0].x < 0 ||
+      this.snakeBody[0].y < 0
+    ) {
+      this.isSnakeDead = true;
     }
   }
 

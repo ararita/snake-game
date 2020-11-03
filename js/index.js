@@ -3,9 +3,12 @@ const snakeBoard = document.getElementById("snake-board");
 
 function draw() {
   update();
-  setTimeout(() => {
+  let timer = setTimeout(() => {
     this.draw();
   }, 300);
+  if (snakeGame.isSnakeDead === true) {
+    clearTimeout(timer);
+  }
 }
 
 function update() {
