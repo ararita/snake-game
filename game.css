@@ -3,6 +3,9 @@
 }
 
 body {
+  font-family: "Orbitron", sans-serif;
+  font-family: "Poiret One", cursive;
+  font-family: "Press Start 2P", cursive;
   margin: 0;
   width: 100vw;
   height: 100vh;
@@ -13,7 +16,6 @@ body {
   background-image: url("../jungle.jpg");
   background-position: center;
   background-size: cover;
-  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 #snake-board {
@@ -36,12 +38,12 @@ body {
 }
 
 .score {
-  width: 30vmin;
-  margin-bottom: 20px;
+  /* width: 30vmin;
+  margin-bottom: 20px; */
   padding: 10px;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .square {
@@ -51,8 +53,8 @@ body {
   border: 0.25vmin solid black;
 }
 
-p {
-  font-size: 50px;
-  font-weight: bolder;
+h2 {
+  font-size: 30px;
+  /* font-weight: bolder; */
   color: white;
 }

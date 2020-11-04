@@ -35,12 +35,10 @@ class SnakeGame {
     // this.snakeBody.pop();
 
     if (
-      //how do i make sure that food doesn't appear somewhere under
-      //the snake body, once the snake grows?
       snakeHead.x === food.coordinates.x &&
       snakeHead.y === food.coordinates.y
     ) {
-      let scoreEl = document.querySelector(".score > p > span");
+      let scoreEl = document.querySelector(".score > h2 > span");
       scoreEl.innerHTML = this.score += 1;
       //display the food randomly
       food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
@@ -69,18 +67,14 @@ class SnakeGame {
       ) {
         this.isSnakeDead = true;
       }
-      if (
-        this.snakeBody[i].x > 30 ||
-        snakeHead.x > 30 ||
-        this.snakeBody[i].y > 30 ||
-        snakeHead.y > 30 ||
-        this.snakeBody[i].x < 0 ||
-        snakeHead.x < 0 ||
-        this.snakeBody[i].y < 0 ||
-        snakeHead.y < 0
-      ) {
-        this.isSnakeDead = true;
-      }
+    }
+    if (
+      snakeHead.x > 30 ||
+      snakeHead.y > 30 ||
+      snakeHead.x < 1 ||
+      snakeHead.y < 1
+    ) {
+      this.isSnakeDead = true;
     }
   }
 
