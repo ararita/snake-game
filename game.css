@@ -25,6 +25,7 @@ body {
   display: grid;
   grid-template-rows: repeat(30, 1fr);
   grid-template-columns: repeat(30, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.809);
 }
 
 .snake {
@@ -38,12 +39,18 @@ body {
 }
 
 .score {
-  /* width: 30vmin;
-  margin-bottom: 20px; */
-  padding: 10px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  width: 80vmin;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(9, 27, 18, 0.911);
+  border: 1px solid rgba(255, 255, 255, 0.809);
+  /* border-bottom: 2px solid rgb(45, 90, 56); */
+}
+
+.score img {
+  width: 60px;
 }
 
 .square {
@@ -54,7 +61,56 @@ body {
 }
 
 h2 {
-  font-size: 30px;
-  /* font-weight: bolder; */
+  font-size: 20px;
+  font-weight: lighter;
   color: white;
+  padding-left: 15px;
 }
+
+.popup {
+  visibility: hidden;
+  height: 90vmin;
+  width: 110vmin;
+  background-color: rgb(83, 167, 177);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup a {
+  margin-top: 0;
+}
+
+p {
+  color: rgb(245, 248, 244);
+  font-size: 40px;
+  margin-bottom: 200px;
+}
+
+.popup img {
+  width: 60vmin;
+  height: 40vmin;
+}
+
+.play-again a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+
+.play-again {
+  border: 0.25vmin solid rgb(245, 191, 90);
+  width: 30vmin;
+  height: 7vmin;
+  background-color: rgb(245, 191, 90);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* .play-again:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(245, 191, 90);
+} */

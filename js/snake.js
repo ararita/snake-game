@@ -32,14 +32,16 @@ class SnakeGame {
       snakeHead.x++;
     }
     this.snakeBody.unshift(snakeHead);
-    // this.snakeBody.pop();
-
     if (
       snakeHead.x === food.coordinates.x &&
       snakeHead.y === food.coordinates.y
     ) {
+      //add sound
+      document.getElementById("sound").play();
+      //add score
       let scoreEl = document.querySelector(".score > h2 > span");
       scoreEl.innerHTML = this.score += 1;
+
       //display the food randomly
       food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
       food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
@@ -75,6 +77,10 @@ class SnakeGame {
       snakeHead.y < 1
     ) {
       this.isSnakeDead = true;
+    }
+    if (this.isSnakeDead === true) {
+      let popupEl = document.querySelector(".popup");
+      popupEl.style.visibility = "visible";
     }
   }
 
