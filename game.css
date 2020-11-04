@@ -1,13 +1,19 @@
+* {
+  margin: 0;
+}
+
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("../jungle.jpg");
   background-position: center;
   background-size: cover;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 #snake-board {
@@ -27,4 +33,26 @@ body {
 .food {
   background-color: yellow;
   border: 0.25vmin solid black;
+}
+
+.score {
+  width: 30vmin;
+  margin-bottom: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border: 0.25vmin solid black;
+}
+
+p {
+  font-size: 50px;
+  font-weight: bolder;
+  color: white;
 }

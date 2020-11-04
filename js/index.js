@@ -6,7 +6,7 @@ function draw() {
   update();
   let timer = setTimeout(() => {
     this.draw();
-  }, 200);
+  }, 150);
   if (snakeGame.isSnakeDead === true) {
     clearTimeout(timer);
   }

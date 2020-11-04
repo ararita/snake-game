@@ -4,6 +4,7 @@ class SnakeGame {
     this.direction = "right";
     this.isSnakeDead = false;
     this.gridSize = 30;
+    this.score = 0;
   }
   drawSnake(snakeBoard) {
     this.snakeBody.forEach((gridSegment) => {
@@ -39,6 +40,8 @@ class SnakeGame {
       snakeHead.x === food.coordinates.x &&
       snakeHead.y === food.coordinates.y
     ) {
+      // let scoreEl = document.querySelector(".score > p > span");
+      // scoreEl.innerHTML = this.score + 1;
       //display the food randomly
       food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
       food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
@@ -49,8 +52,6 @@ class SnakeGame {
   }
 
   dead(snakeHead) {
-    // console.log("snake body from dead fn", this.snakeBody);
-    //check if the head coordinates has collided with any of the body coordinates
     for (let i = 1; i < this.snakeBody.length; i++) {
       if (
         snakeHead.x === this.snakeBody[i].x &&
@@ -58,19 +59,23 @@ class SnakeGame {
       ) {
         this.isSnakeDead = true;
       }
-    }
-    if (
-      snakeHead.x > 30 ||
-      snakeHead.y > 30 ||
-      snakeHead.x < 0 ||
-      snakeHead.y < 0
-    ) {
-      this.isSnakeDead = true;
+      if (
+        this.snakeBody[i].x > 30 ||
+        snakeHead.x > 30 ||
+        this.snakeBody[i].y > 30 ||
+        snakeHead.y > 30 ||
+        this.snakeBody[i].x < 0 ||
+        snakeHead.x < 0 ||
+        this.snakeBody[i].y < 0 ||
+        snakeHead.y < 0
+      ) {
+        this.isSnakeDead = true;
+      }
     }
   }
 
   changeDirection(e) {
-    console.log("change direction");
+    // console.log("change direction");
     if (e.keyCode === 39 && this.direction !== "left") {
       this.direction = "right";
     } else if (e.keyCode === 40 && this.direction !== "up") {
