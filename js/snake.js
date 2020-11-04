@@ -34,6 +34,8 @@ class SnakeGame {
     // this.snakeBody.pop();
 
     if (
+      //how do i make sure that food doesn't appear somewhere under
+      //the snake body, once the snake grows?
       snakeHead.x === food.coordinates.x &&
       snakeHead.y === food.coordinates.y
     ) {
@@ -47,6 +49,16 @@ class SnakeGame {
   }
 
   dead(snakeHead) {
+    // console.log("snake body from dead fn", this.snakeBody);
+    //check if the head coordinates has collided with any of the body coordinates
+    for (let i = 1; i < this.snakeBody.length; i++) {
+      if (
+        snakeHead.x === this.snakeBody[i].x &&
+        snakeHead.y === this.snakeBody[i].y
+      ) {
+        this.isSnakeDead = true;
+      }
+    }
     if (
       snakeHead.x > 30 ||
       snakeHead.y > 30 ||
