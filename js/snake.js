@@ -40,11 +40,21 @@ class SnakeGame {
       snakeHead.x === food.coordinates.x &&
       snakeHead.y === food.coordinates.y
     ) {
-      // let scoreEl = document.querySelector(".score > p > span");
-      // scoreEl.innerHTML = this.score + 1;
+      let scoreEl = document.querySelector(".score > p > span");
+      scoreEl.innerHTML = this.score += 1;
       //display the food randomly
       food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
       food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
+
+      this.snakeBody.forEach((gridSegment) => {
+        if (
+          food.coordinates.x === gridSegment.x &&
+          food.coordinates.y === gridSegment.y
+        ) {
+          food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
+          food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
+        }
+      });
     } else {
       this.snakeBody.pop();
     }
