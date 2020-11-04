@@ -1,9 +1,6 @@
 class SnakeGame {
   constructor() {
-    this.snakeBody = [
-      // { x: 15, y: 17 },
-      { x: 15, y: 16 },
-    ];
+    this.snakeBody = [{ x: 15, y: 16 }];
     this.direction = "right";
     this.isSnakeDead = false;
     this.gridSize = 30;
@@ -22,32 +19,39 @@ class SnakeGame {
   }
 
   moveSnake(food) {
+    let snakeHead = { x: this.snakeBody[0].x, y: this.snakeBody[0].y };
+    //move head
     if (this.direction === "right") {
-      this.snakeBody[0].y++;
+      snakeHead.y++;
     } else if (this.direction === "left") {
-      this.snakeBody[0].y--;
+      snakeHead.y--;
     } else if (this.direction === "up") {
-      this.snakeBody[0].x--;
+      snakeHead.x--;
     } else if (this.direction === "down") {
-      this.snakeBody[0].x++;
+      snakeHead.x++;
     }
+    this.snakeBody.unshift(snakeHead);
+    // this.snakeBody.pop();
+
     if (
-      this.snakeBody[0].x === food.coordinates.x &&
-      this.snakeBody[0].y === food.coordinates.y
+      snakeHead.x === food.coordinates.x &&
+      snakeHead.y === food.coordinates.y
     ) {
       //display the food randomly
       food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
       food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
+    } else {
+      this.snakeBody.pop();
     }
-    this.dead();
+    this.dead(snakeHead);
   }
 
-  dead() {
+  dead(snakeHead) {
     if (
-      this.snakeBody[0].x > 30 ||
-      this.snakeBody[0].y > 30 ||
-      this.snakeBody[0].x < 0 ||
-      this.snakeBody[0].y < 0
+      snakeHead.x > 30 ||
+      snakeHead.y > 30 ||
+      snakeHead.x < 0 ||
+      snakeHead.y < 0
     ) {
       this.isSnakeDead = true;
     }

@@ -1,6 +1,5 @@
 const snakeGame = new SnakeGame();
 const food = new Food();
-
 const snakeBoard = document.getElementById("snake-board");
 
 function draw() {
@@ -18,12 +17,7 @@ function update() {
   snakeGame.drawSnake(snakeBoard);
   snakeGame.moveSnake(food);
   food.drawFood(snakeBoard);
-  // food.randomFoodPosition();
 }
-
-// function comparePositions() {
-
-// }
 
 draw();
 
