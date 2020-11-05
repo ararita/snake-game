@@ -5,7 +5,7 @@ class SnakeGame {
     this.isSnakeDead = false;
     this.gridSize = 30;
     this.score = 0;
-  
+    this.speed = 200;
   }
   drawSnake(snakeBoard) {
     this.snakeBody.forEach((gridSegment) => {
@@ -82,6 +82,7 @@ class SnakeGame {
     if (this.isSnakeDead === true) {
       let popupEl = document.querySelector(".popup");
       popupEl.style.visibility = "visible";
+      // popupEl.style.transition = "ease-in";
     }
   }
 
