@@ -1,7 +1,6 @@
 class Food {
   constructor() {
     this.coordinates = { x: 10, y: 10 };
-    // this.growSnake = 0;
   }
 
   drawFood(snakeBoard) {

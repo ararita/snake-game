@@ -76,6 +76,7 @@ h2 {
   display: flex;
   align-items: center;
   flex-direction: column;
+  transition: 0.4s ease-out;
 }
 
 .popup a {
@@ -108,9 +109,9 @@ p {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.4s;
 }
 
-/* .play-again:hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(245, 191, 90);
-} */
+.play-again:hover {
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+}

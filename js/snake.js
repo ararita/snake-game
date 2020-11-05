@@ -5,6 +5,7 @@ class SnakeGame {
     this.isSnakeDead = false;
     this.gridSize = 30;
     this.score = 0;
+  
   }
   drawSnake(snakeBoard) {
     this.snakeBody.forEach((gridSegment) => {
