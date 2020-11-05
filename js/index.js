@@ -2,15 +2,18 @@ const snakeGame = new SnakeGame();
 const food = new Food();
 const snakeBoard = document.getElementById("snake-board");
 
-if (snakeGame.score > 2) {
-  snakeGame.speed -= 20;
+let speed = 150;
+if (snakeGame.score >= 2) {
+  speed -= 10;
 }
 function draw() {
   update();
-
+  snakeGame.speed =
+    snakeGame.startingSpeed - Math.floor(snakeGame.score / 5) * 10;
+  console.log("speed", snakeGame.speed);
   let timer = setTimeout(() => {
     this.draw();
-  }, snakeGame.speed);
+  }, speed);
   if (snakeGame.isSnakeDead === true) {
     clearTimeout(timer);
   }
