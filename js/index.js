@@ -1,6 +1,7 @@
 const snakeGame = new SnakeGame();
 const food = new Food();
 const snakeBoard = document.getElementById("snake-board");
+let soundOffImg = document.querySelector(".soundoff");
 
 function draw() {
   update();
@@ -20,12 +21,20 @@ function update() {
   snakeBoard.innerHTML = "";
   snakeGame.drawSnake(snakeBoard);
   snakeGame.moveSnake(food);
-  // snakeGame.checkIfPlaying();
   snakeGame.playMusic();
   food.drawFood(snakeBoard);
 }
 
 draw();
+
+soundOffImg.addEventListener("click", () => {
+  console.log("clicked");
+  if (snakeGame.playSound === true) {
+    snakeGame.playSound = false;
+  } else {
+    snakeGame.playSound = true;
+  }
+});
 
 window.addEventListener("keydown", (e) => {
   snakeGame.changeDirection(e);

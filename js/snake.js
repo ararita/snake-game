@@ -24,22 +24,12 @@ class SnakeGame {
   }
   playMusic() {
     let rainforest = document.getElementById("rainforest");
-    let soundOffImg = document.querySelector(".soundoff");
 
     if (this.playSound === true) {
       rainforest.play();
     } else if (this.playSound === false) {
       rainforest.pause();
     }
-
-    soundOffImg.addEventListener("click", () => {
-      console.log("clicked");
-      if (this.playSound === true) {
-        rainforest.pause();
-      } else {
-        rainforest.play();
-      }
-    });
   }
 
   moveSnake(food) {
