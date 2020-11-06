@@ -7,8 +7,10 @@ class SnakeGame {
     this.score = 0;
     this.startingSpeed = 200;
     this.speed = this.startingSpeed;
+    this.playSound = true;
   }
   drawSnake(snakeBoard) {
+    // this.playMusic();
     this.snakeBody.forEach((gridSegment) => {
       // console.log("gridSegment", gridSegment);
       const snakeElm = document.createElement("div");
@@ -18,6 +20,25 @@ class SnakeGame {
 
       snakeElm.classList.add("snake");
       snakeBoard.appendChild(snakeElm);
+    });
+  }
+  playMusic() {
+    let rainforest = document.getElementById("rainforest");
+    let soundOffImg = document.querySelector(".soundoff");
+
+    if (this.playSound === true) {
+      rainforest.play();
+    } else if (this.playSound === false) {
+      rainforest.pause();
+    }
+
+    soundOffImg.addEventListener("click", () => {
+      console.log("clicked");
+      if (this.playSound === true) {
+        rainforest.pause();
+      } else {
+        rainforest.play();
+      }
     });
   }
 
@@ -70,6 +91,7 @@ class SnakeGame {
         snakeHead.y === this.snakeBody[i].y
       ) {
         this.isSnakeDead = true;
+        this.playSound = false;
       }
     }
     if (
@@ -79,6 +101,7 @@ class SnakeGame {
       snakeHead.y < 1
     ) {
       this.isSnakeDead = true;
+      this.playSound = false;
     }
     if (this.isSnakeDead === true) {
       let popupEl = document.querySelector(".popup");
