@@ -26,11 +26,11 @@ This is a clone of mobile snake game, built with Vanilla JavaScript
 - CSS
 - JavaScript
 
+## Play the game
+
+[ssssnake game](https://ararita.github.io/snake-game/?fbclid=IwAR1wRA2zQSglaToSW6-jc7fEuK5TjE79F0yNgd1htXMHstgVEX7joMJyIWM)
+
 ## Preview
-
-Play the game
-
-[ssssnake](https://ararita.github.io/snake-game/?fbclid=IwAR1wRA2zQSglaToSW6-jc7fEuK5TjE79F0yNgd1htXMHstgVEX7joMJyIWM)
 
 Start the game
 
