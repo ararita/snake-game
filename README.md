@@ -30,7 +30,7 @@ This is a clone of mobile snake game, built with Vanilla JavaScript
 
 Play the game
 
-[a link](https://ararita.github.io/snake-game/?fbclid=IwAR1wRA2zQSglaToSW6-jc7fEuK5TjE79F0yNgd1htXMHstgVEX7joMJyIWM)
+[ssssnake](https://ararita.github.io/snake-game/?fbclid=IwAR1wRA2zQSglaToSW6-jc7fEuK5TjE79F0yNgd1htXMHstgVEX7joMJyIWM)
 
 Start the game
 
@@ -43,7 +43,3 @@ Play
 Game Over
 
 ![](gameover.png)
-
-## Roadmap
-
-Solve known bugs
