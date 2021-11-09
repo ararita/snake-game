@@ -28,12 +28,7 @@ function update() {
 draw();
 
 soundOffImg.addEventListener("click", () => {
-  console.log("clicked");
-  if (snakeGame.playSound === true) {
-    snakeGame.playSound = false;
-  } else {
-    snakeGame.playSound = true;
-  }
+  snakeGame.playSound = !snakeGame.playSound;
 });
 
 window.addEventListener("keydown", (e) => {

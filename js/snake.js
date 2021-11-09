@@ -25,15 +25,9 @@ class SnakeGame {
   playMusic() {
     let rainforest = document.getElementById("rainforest");
 
-    if (this.playSound === true) {
-      rainforest.play();
-    } else if (this.playSound === false) {
-      rainforest.pause();
-    }
+    this.playSound === true ? rainforest.play() : rainforest.pause();
   }
-
-  moveSnake(food) {
-    let snakeHead = { x: this.snakeBody[0].x, y: this.snakeBody[0].y };
+  snakeDirection(snakeHead) {
     //move head
     if (this.direction === "right") {
       snakeHead.y++;
@@ -44,7 +38,30 @@ class SnakeGame {
     } else if (this.direction === "down") {
       snakeHead.x++;
     }
+  }
+
+  displayFoodRandomly() {
+    food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
+    food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
+  }
+
+  snakeFoodCollisionCheck(snakeBody) {
+    snakeBody.forEach((gridSegment) => {
+      if (
+        food.coordinates.x === gridSegment.x &&
+        food.coordinates.y === gridSegment.y
+      ) {
+        this.displayFoodRandomly();
+      }
+    });
+  }
+
+  moveSnake(food) {
+    let snakeHead = { x: this.snakeBody[0].x, y: this.snakeBody[0].y };
+
+    this.snakeDirection(snakeHead);
     this.snakeBody.unshift(snakeHead);
+
     if (
       snakeHead.x === food.coordinates.x &&
       snakeHead.y === food.coordinates.y
@@ -55,19 +72,8 @@ class SnakeGame {
       let scoreEl = document.querySelector(".score > h2 > span");
       scoreEl.innerHTML = this.score += 1;
 
-      //display the food randomly
-      food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
-      food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
-
-      this.snakeBody.forEach((gridSegment) => {
-        if (
-          food.coordinates.x === gridSegment.x &&
-          food.coordinates.y === gridSegment.y
-        ) {
-          food.coordinates.x = Math.floor(Math.random() * this.gridSize) + 1;
-          food.coordinates.y = Math.floor(Math.random() * this.gridSize) + 1;
-        }
-      });
+      this.displayFoodRandomly();
+      this.snakeFoodCollisionCheck(this.snakeBody);
     } else {
       this.snakeBody.pop();
     }
