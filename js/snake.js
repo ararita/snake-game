@@ -22,11 +22,12 @@ class SnakeGame {
       snakeBoard.appendChild(snakeElm);
     });
   }
+
   playMusic() {
     let rainforest = document.getElementById("rainforest");
-
     this.playSound === true ? rainforest.play() : rainforest.pause();
   }
+
   snakeDirection(snakeHead) {
     //move head
     if (this.direction === "right") {
